@@ -2,9 +2,31 @@
 ## functions do
 
 ## Write a short comment describing this function
-
-makeCacheMatrix <- function(x = matrix()) {
-
+# Create a special matrix that can cache inverse.
+makeCacheMatrix <- function(m = matrix()) {
+  
+  # DECLARE inverse
+  inv <- NULL
+  
+  # SET metrix
+  set <- function(matrix) {
+    m <<- matrix
+    inv <<- NULL
+  }
+  
+  # GET metrix
+  get <- function() m
+  
+  # SET inverse metrix
+  setInverse <- function(inverse) inv <<- inverse
+  
+  # GET inverse metrix
+  getInverse <- function() inv
+  
+  # RETURN lists of cache matrix
+  list(set=set, get=get, 
+       setInverse=setInverse, 
+       getInverse=getInverse)
 }
 
 ## Write a short comment describing this function
